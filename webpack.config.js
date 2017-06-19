@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -37,6 +38,7 @@ module.exports = {
         contentBase: __dirname + '/dist',
         compress: true,
         port: 8080,
+        hot: true,
         stats: 'errors-only'
     },
 
@@ -50,6 +52,8 @@ module.exports = {
             filename: 'index.css',
             disable: !isProd,
             allChunks: true
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()
     ]
 };
