@@ -18,14 +18,28 @@ module.exports = {
         path: __dirname + '/dist',
         filename: 'app.bundle.js'
     },
+
     module: {
         rules: [
             {
                 test: /\.scss$/, 
                 use: cssConfig
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
             }
         ]
     },
+
+    devServer: {
+        contentBase: __dirname + '/dist',
+        compress: true,
+        port: 8080,
+        stats: 'errors-only'
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Reactor',
