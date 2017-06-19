@@ -1,13 +1,23 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer')
 
 
 const isProd = process.env.NODE_ENV === 'production';
-const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
+const cssLoader = { 
+    loader: 'css-loader', 
+    options: { autoprefixer: true, sourceMap: true,importLoaders: 1 }
+};
+const postcssLoader = {
+    loader: 'postcss-loader',
+    options: { sourceMap: true, plugins: () => [autoprefixer()] },
+};
+
+const cssDev = ['style-loader', cssLoader, postcssLoader, 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
     fallback: 'style-loader', 
-    use: ['css-loader', 'sass-loader'],
+    use: [cssLoader, postcssLoader, 'sass-loader'],
     publicPath: './'
 });
 const cssConfig = isProd ? cssProd : cssDev;
