@@ -23,4 +23,4 @@ Environment:
 
 ## Start production
 
-```npm build```
+```npm run build```
