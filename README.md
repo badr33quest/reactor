@@ -5,14 +5,15 @@ Reactor - React Modern Boilerplate
 
 ## Description
 
-JS
+**JS:**
   - Babel
   - React
  
-Styles:
+**Styles:**
   - Sass
+  - PostCSS (autoprefixer)
 
-Environment:
+**Environment:**
 - Webpack 2:
   - webpack-dev-server
 
