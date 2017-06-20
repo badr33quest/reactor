@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Paragraph = () => <p>testing sub-components</p>
+const Paragraph = () => <p>testing sub-components</p>;
 
-export default Paragraph
+export default Paragraph;

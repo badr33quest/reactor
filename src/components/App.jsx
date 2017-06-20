@@ -1,8 +1,6 @@
 import React from 'react';
 import Paragraph from './Paragraph';
 
-console.info('Hello from App.js');
-
 const App = () => {
     return (
         <div>
@@ -12,4 +10,4 @@ const App = () => {
     );
 };
 
-export default App
+export default App;
