@@ -25,6 +25,18 @@ const cssProd = ExtractTextPlugin.extract({
     publicPath: './'
 });
 const cssConfig = isProd ? cssProd : cssDev;
+const appEntry = isProd ? './src/index.js' : [
+    // activate HMR for React
+    'react-hot-loader/patch',
+    // bundle the client for webpack-dev-server
+    // and connect to the provided endpoint   
+    'webpack-dev-server/client?http://localhost:8080',
+    // bundle the client for hot reloading
+    // only- means to only hot reload for successful updates
+    'webpack/hot/only-dev-server',
+    // Our app main entry            
+    './src/index.js',
+];
 let bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
 
@@ -34,7 +46,7 @@ module.exports = {
     },
     devtool: 'eval-source-map',
     entry: {
-        app: './src/index.js',
+        app: appEntry,
         bootstrap: bootstrapConfig
     },
     output: {
@@ -44,7 +56,7 @@ module.exports = {
 
     devServer: {
         contentBase: __dirname + '/dist',
-        compress: true,
+        // compress: true,
         port: 8080,
         hot: true,
         stats: 'errors-only'
@@ -57,10 +69,10 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader'
             },
-            { 
-                test: /\.jsx?$/, 
-                exclude: /node_modules/, 
-                loaders: ['babel-loader'] 
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loaders: ['babel-loader']
             },
             {
                 test: /\.scss$/,
@@ -104,6 +116,7 @@ module.exports = {
             allChunks: true
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.NamedModulesPlugin(),
         new PurifyCSSPlugin({
             paths: glob.sync(path.join(__dirname, 'src/*.html'))

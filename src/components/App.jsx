@@ -1,12 +1,15 @@
 import React from 'react';
+import Paragraph from './Paragraph';
 
-console.log('Hello from App.js');
+console.info('Hello from App.js');
 
-export const App = () => {
+const App = () => {
     return (
         <div>
             <h1 className="title">Hello from React</h1>
-            <p>Testing rendering with JSX</p>
+            <Paragraph />
         </div>
     );
 };
+
+export default App
