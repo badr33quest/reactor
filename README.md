@@ -17,11 +17,12 @@ Reactor - React Modern Boilerplate
 **Environment:**
 - Webpack 2:
   - webpack-dev-server
+  - react-hot-loader next
 
 
 ## Start development
 
-```npm start```
+```npm start``` (application will be available at [http://localhost:8080/](http://localhost:8080/))
 
 ## Start production
 
