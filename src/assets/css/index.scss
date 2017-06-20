@@ -1,3 +1,35 @@
-h1 {
-    color: darkcyan
+html,
+body {
+    color: #303030;
+    font-family: Segoe UI;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #f6f6f6 none repeat scroll 0 0;
+    border-bottom: 1px solid #d5d5d5;
+    height: 50px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.logo__home {
+    background-image: url('../images/reactor-home-small.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-right: 1px solid #d5d5d5;
+    float: left;
+    height: 100%;
+    margin: 0;
+    padding: 0 10px;
+    width: 42px;
+}
+
+.logo__title {
+    color: #b2b2b2;
+    float: left;
+    margin: 0;
+    padding: 0 10px;
 }
