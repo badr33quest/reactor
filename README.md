@@ -12,6 +12,7 @@ Reactor - React Modern Boilerplate
 **Styles:**
   - Sass
   - PostCSS (autoprefixer)
+  - Bootstrap-sass (customizable)
 
 **Environment:**
 - Webpack 2:

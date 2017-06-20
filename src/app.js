@@ -1,4 +1,4 @@
-import css from './assets/css/index.scss';
+import './assets/css/index.scss';
 
 console.log('Hello from reactor!');
 

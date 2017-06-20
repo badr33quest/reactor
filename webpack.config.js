@@ -1,7 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer')
+const autoprefixer = require('autoprefixer');
+const bootstrapEntryPoints = require('./webpack.bootstrap.config');
+const path = require('path');
+const glob = require('glob');
+const PurifyCSSPlugin = require('purifycss-webpack');
 
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -21,13 +25,17 @@ const cssProd = ExtractTextPlugin.extract({
     publicPath: './'
 });
 const cssConfig = isProd ? cssProd : cssDev;
+let bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
 
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+        app: './src/app.js',
+        bootstrap: bootstrapConfig
+    },
     output: {
         path: __dirname + '/dist',
-        filename: 'app.bundle.js'
+        filename: '[name].bundle.js'
     },
 
     module: {
@@ -42,11 +50,25 @@ module.exports = {
                 use: 'babel-loader'
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                exclude: /fonts/,
                 use:[
-                    'file-loader?name=images/[name].[ext]',
+                    'file-loader?name=assets/images/[name].[ext]&publicPath=../../',
                     'image-webpack-loader'
                 ]
+            },
+            { 
+                test: /\.(woff2?|svg)$/, 
+                exclude: /images/,
+                loader: 'url-loader?limit=10000&name=assets/fonts/[name].[ext]' 
+            },
+            { 
+                test: /\.(ttf|eot)$/, 
+                loader: 'file-loader?name=assets/fonts/[name].[ext]' 
+            },
+            { 
+                test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, 
+                loader: 'imports-loader?jQuery=jquery' 
             }
         ]
     },
@@ -66,11 +88,14 @@ module.exports = {
             template: 'src/index.html'
         }),
         new ExtractTextPlugin({
-            filename: 'index.css',
+            filename: 'assets/css/[name].css',
             disable: !isProd,
             allChunks: true
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        new PurifyCSSPlugin({
+            paths: glob.sync(path.join(__dirname, 'src/*.html'))
+        })
     ]
 };

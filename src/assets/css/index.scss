@@ -1,8 +1,6 @@
 html,
 body {
     color: #303030;
-    font-family: Segoe UI;
-    font-size: 16px;
     margin: 0;
     padding: 0;
 }
@@ -13,6 +11,7 @@ header {
     height: 50px;
     padding: 5px 0;
     position: relative;
+    box-sizing: initial;
 }
 
 .logo__home {
@@ -25,6 +24,7 @@ header {
     margin: 0;
     padding: 0 10px;
     width: 42px;
+    box-sizing: initial;
 }
 
 .logo__title {
