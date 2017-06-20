@@ -18,12 +18,17 @@ Reactor - React Modern Boilerplate
 - Webpack 2:
   - webpack-dev-server
   - react-hot-loader next
+  - eslint-loader
 
 
 ## Start development
 
-```npm start``` (application will be available at [http://localhost:8080/](http://localhost:8080/))
+```npm start``` run webpack dev server (application will be available at [http://localhost:8080/](http://localhost:8080/))
 
 ## Start production
 
-```npm run build```
+```npm run build``` build application to /dist folder
+
+## Testing
+
+```npm run lint``` run eslint
