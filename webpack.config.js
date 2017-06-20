@@ -9,9 +9,9 @@ const PurifyCSSPlugin = require('purifycss-webpack');
 
 
 const isProd = process.env.NODE_ENV === 'production';
-const cssLoader = { 
-    loader: 'css-loader', 
-    options: { autoprefixer: true, sourceMap: true,importLoaders: 1 }
+const cssLoader = {
+    loader: 'css-loader',
+    options: { autoprefixer: true, sourceMap: true, importLoaders: 1 }
 };
 const postcssLoader = {
     loader: 'postcss-loader',
@@ -20,7 +20,7 @@ const postcssLoader = {
 
 const cssDev = ['style-loader', cssLoader, postcssLoader, 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
-    fallback: 'style-loader', 
+    fallback: 'style-loader',
     use: [cssLoader, postcssLoader, 'sass-loader'],
     publicPath: './'
 });
@@ -29,48 +29,17 @@ let bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.
 
 
 module.exports = {
+    resolve: {
+        extensions: ['*', '.js', '.jsx', '.json']
+    },
+    devtool: 'eval-source-map',
     entry: {
-        app: './src/app.js',
+        app: './src/index.js',
         bootstrap: bootstrapConfig
     },
     output: {
         path: __dirname + '/dist',
         filename: '[name].bundle.js'
-    },
-
-    module: {
-        rules: [
-            {
-                test: /\.scss$/, 
-                use: cssConfig
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: 'babel-loader'
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg|ico)$/i,
-                exclude: /fonts/,
-                use:[
-                    'file-loader?name=assets/images/[name].[ext]&publicPath=../../',
-                    'image-webpack-loader'
-                ]
-            },
-            { 
-                test: /\.(woff2?|svg)$/, 
-                exclude: /images/,
-                loader: 'url-loader?limit=10000&name=assets/fonts/[name].[ext]' 
-            },
-            { 
-                test: /\.(ttf|eot)$/, 
-                loader: 'file-loader?name=assets/fonts/[name].[ext]' 
-            },
-            { 
-                test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, 
-                loader: 'imports-loader?jQuery=jquery' 
-            }
-        ]
     },
 
     devServer: {
@@ -81,8 +50,50 @@ module.exports = {
         stats: 'errors-only'
     },
 
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            },
+            { 
+                test: /\.jsx?$/, 
+                exclude: /node_modules/, 
+                loaders: ['babel-loader'] 
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: cssConfig
+            },
+            {
+                test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+                loader: 'imports-loader?jQuery=jquery'
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                exclude: /fonts/,
+                use: [
+                    'file-loader?name=assets/images/[name].[ext]&publicPath=../../',
+                    'image-webpack-loader'
+                ]
+            },
+            {
+                test: /\.(woff2?|svg)$/,
+                exclude: /images/,
+                loader: 'url-loader?limit=10000&name=assets/fonts/[name].[ext]'
+            },
+            {
+                test: /\.(ttf|eot)$/,
+                loader: 'file-loader?name=assets/fonts/[name].[ext]'
+            }
+        ]
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
+            favicon: 'src/assets/images/favicon.ico',
             title: 'Reactor',
             hash: true,
             template: 'src/index.html'

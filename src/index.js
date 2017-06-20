@@ -1,11 +1,12 @@
 import './assets/css/index.scss';
 
-console.log('Hello from reactor!');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {App} from './components/App';
+
+console.log('Hello from index.js');
 
 ReactDOM.render(
-    <h1>Hello from React</h1>,
+    <App/>,
     document.getElementById('app')
 );
