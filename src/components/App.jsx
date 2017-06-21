@@ -4,7 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import {
   HomePage,
   EmployeesPage,
-  DocumentsPage
+  DocumentsPage,
+  NotFoundPage
 } from 'app_pages';
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
     <Route exact path="/" component={HomePage} />
     <Route path="/employees" component={EmployeesPage} />
     <Route path="/documents" component={DocumentsPage} />
+    <Route component={NotFoundPage} />
   </Switch>
 );
 

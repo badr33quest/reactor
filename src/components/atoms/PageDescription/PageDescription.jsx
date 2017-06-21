@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const PageDescription = (props) => <p>{props.description}</p>;
 
 PageDescription.propTypes = {
-    description: PropTypes.string.isRequired
+    description: PropTypes.string
 };
 
 export default PageDescription;
