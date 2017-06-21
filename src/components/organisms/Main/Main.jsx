@@ -2,8 +2,10 @@ import './Main.scss';
 
 import React, { Component } from 'react';
 
-import PageTitle from '../../atoms/PageTitle/PageTitle';
-import PageDescription from '../../atoms/PageDescription/PageDescription';
+import {
+    PageTitle,
+    PageDescription
+} from 'app_atoms';
 
 class Main extends React.Component {
     render() {

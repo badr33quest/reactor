@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import NavItem from '../../molecules/NavItem/NavItem';
+import {
+    NavItem
+} from 'app_molecules';
 
 const Header = () => (
     <header>

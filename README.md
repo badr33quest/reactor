@@ -8,7 +8,7 @@ Reactor - React Modern Boilerplate
 **JS:**
   - Babel
   - React
-  - react-router-v4
+    - react-router-v4
  
 **Styles:**
   - Sass

@@ -42,7 +42,14 @@ let bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.
 
 module.exports = {
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.json']
+        extensions: ['*', '.js', '.jsx', '.json'],
+        alias: {
+            app_atoms: path.resolve(__dirname, 'src/components/atoms'),
+            app_molecules: path.resolve(__dirname, 'src/components/molecules'),
+            app_organisms: path.resolve(__dirname, 'src/components/organisms'),
+            app_templates: path.resolve(__dirname, 'src/components/templates'),
+            app_pages: path.resolve(__dirname, 'src/components/pages')
+        }
     },
     devtool: 'eval-source-map',
     entry: {
