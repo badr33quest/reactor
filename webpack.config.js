@@ -117,9 +117,9 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new PurifyCSSPlugin({
+        new webpack.NamedModulesPlugin()
+/*        , new PurifyCSSPlugin({
             paths: glob.sync(path.join(__dirname, 'src/*.html'))
-        })
+        })*/
     ]
 };

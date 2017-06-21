@@ -3,7 +3,9 @@ import './assets/css/index.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader'; // required for HMR
-import App from './components/App'; // App 
+import { HashRouter } from 'react-router-dom';
+
+import App from './components/App';
 
 renderWithHotReload(App);
 
@@ -16,7 +18,9 @@ if (module.hot) {
 
 function renderWithHotReload(App) {
     render(
-        <App /> , 
+        <HashRouter>
+            <App />
+        </HashRouter>,
         document.getElementById('app')
     );
 }

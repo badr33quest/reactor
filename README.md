@@ -8,6 +8,7 @@ Reactor - React Modern Boilerplate
 **JS:**
   - Babel
   - React
+  - react-router-v4
  
 **Styles:**
   - Sass
@@ -20,6 +21,8 @@ Reactor - React Modern Boilerplate
   - react-hot-loader next
   - eslint-loader
 
+**Principles:**
+- Components organization pattern - atomic design
 
 ## Start development
 
