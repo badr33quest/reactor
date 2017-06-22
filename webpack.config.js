@@ -48,13 +48,21 @@ module.exports = {
             app_molecules: path.resolve(__dirname, 'src/components/molecules'),
             app_organisms: path.resolve(__dirname, 'src/components/organisms'),
             app_templates: path.resolve(__dirname, 'src/components/templates'),
-            app_pages: path.resolve(__dirname, 'src/components/pages')
+            app_pages: path.resolve(__dirname, 'src/components/pages'),
+
+            app_containers: path.resolve(__dirname, 'src/containers'),
+            app_actions: path.resolve(__dirname, 'src/redux/actions'),
+            app_reducers: path.resolve(__dirname, 'src/redux/reducers'),
+            app_store: path.resolve(__dirname, 'src/redux/store')
         }
     },
     devtool: 'eval-source-map',
     entry: {
         app: appEntry,
-        bootstrap: bootstrapConfig
+        bootstrap: bootstrapConfig,
+        vendor: [
+            'whatwg-fetch'
+        ]
     },
     output: {
         path: __dirname + '/dist',
@@ -125,8 +133,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.NamedModulesPlugin()
-/*        , new PurifyCSSPlugin({
-            paths: glob.sync(path.join(__dirname, 'src/*.html'))
-        })*/
+        /*        , new PurifyCSSPlugin({
+                    paths: glob.sync(path.join(__dirname, 'src/*.html'))
+                })*/
     ]
 };

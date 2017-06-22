@@ -4,9 +4,13 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader'; // required for HMR
 import { HashRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
+import configureStore from 'app_store/configureStore';
 import App from './components/App';
 
+
+const store = configureStore(); 
 renderWithHotReload(App);
 
 if (module.hot) {
@@ -18,9 +22,11 @@ if (module.hot) {
 
 function renderWithHotReload(App) {
     render(
-        <HashRouter>
-            <App />
-        </HashRouter>,
+        <Provider store={store}>
+            <HashRouter>
+                <App />
+            </HashRouter>
+        </Provider>,
         document.getElementById('app')
     );
 }
