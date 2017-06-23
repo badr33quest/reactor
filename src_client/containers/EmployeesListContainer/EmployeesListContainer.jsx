@@ -7,7 +7,7 @@ import { itemsFetchData } from 'app_actions/items';
 class EmployeesListContainer extends Component {
 
     componentWillMount() {
-        this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
+        this.props.fetchData('api/employees');
     }
 
     render() {
@@ -23,7 +23,7 @@ class EmployeesListContainer extends Component {
             <ul>
                 {this.props.items.map((item) => (
                     <li key={item.id + '_' + Math.random()}>
-                        {item.label}
+                        {item.name}
                     </li>
                 ))}
             </ul>

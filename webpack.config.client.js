@@ -25,7 +25,7 @@ const cssProd = ExtractTextPlugin.extract({
     publicPath: './'
 });
 const cssConfig = isProd ? cssProd : cssDev;
-const appEntry = isProd ? './src/index.js' : [
+const appEntry = isProd ? './src_client/index.js' : [
     // activate HMR for React
     'react-hot-loader/patch',
     // bundle the client for webpack-dev-server
@@ -35,7 +35,7 @@ const appEntry = isProd ? './src/index.js' : [
     // only- means to only hot reload for successful updates
     'webpack/hot/only-dev-server',
     // Our app main entry            
-    './src/index.js',
+    './src_client/index.js',
 ];
 let bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
@@ -44,16 +44,18 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx', '.json'],
         alias: {
-            app_atoms: path.resolve(__dirname, 'src/components/atoms'),
-            app_molecules: path.resolve(__dirname, 'src/components/molecules'),
-            app_organisms: path.resolve(__dirname, 'src/components/organisms'),
-            app_templates: path.resolve(__dirname, 'src/components/templates'),
-            app_pages: path.resolve(__dirname, 'src/components/pages'),
+            app_atoms: path.resolve(__dirname, 'src_client/components/atoms'),
+            app_molecules: path.resolve(__dirname, 'src_client/components/molecules'),
+            app_organisms: path.resolve(__dirname, 'src_client/components/organisms'),
+            app_templates: path.resolve(__dirname, 'src_client/components/templates'),
+            app_pages: path.resolve(__dirname, 'src_client/components/pages'),
 
-            app_containers: path.resolve(__dirname, 'src/containers'),
-            app_actions: path.resolve(__dirname, 'src/redux/actions'),
-            app_reducers: path.resolve(__dirname, 'src/redux/reducers'),
-            app_store: path.resolve(__dirname, 'src/redux/store')
+            app_containers: path.resolve(__dirname, 'src_client/containers'),
+            app_actions: path.resolve(__dirname, 'src_client/redux/actions'),
+            app_reducers: path.resolve(__dirname, 'src_client/redux/reducers'),
+            app_store: path.resolve(__dirname, 'src_client/redux/store'),
+
+            app_services: path.resolve(__dirname, 'src_client/services')
         }
     },
     devtool: 'eval-source-map',
@@ -65,16 +67,22 @@ module.exports = {
         ]
     },
     output: {
-        path: __dirname + '/dist',
+        path: __dirname + '/dist_client',
         filename: '[name].bundle.js'
     },
 
     devServer: {
-        contentBase: __dirname + '/dist',
+        contentBase: __dirname + '/dist_client',
         // compress: true,
         port: 8080,
         hot: true,
-        stats: 'errors-only'
+        stats: 'errors-only',
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000/',
+                changeOrigin: true
+            }
+        }
     },
 
     module: {
@@ -120,10 +128,10 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            favicon: 'src/assets/images/favicon.ico',
+            favicon: 'src_client/assets/images/favicon.ico',
             title: 'Reactor',
             hash: true,
-            template: 'src/index.html'
+            template: 'src_client/index.html'
         }),
         new ExtractTextPlugin({
             filename: 'assets/css/[name].css',
@@ -134,7 +142,7 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.NamedModulesPlugin()
         /*        , new PurifyCSSPlugin({
-                    paths: glob.sync(path.join(__dirname, 'src/*.html'))
+                    paths: glob.sync(path.join(__dirname, 'src_client/*.html'))
                 })*/
     ]
 };

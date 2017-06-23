@@ -1,3 +1,7 @@
+import {
+    ApiService
+ } from 'app_services';
+
 function itemsHasErrored(bool) {
     return {
         type: 'ITEMS_HAS_ERRORED',
@@ -33,7 +37,7 @@ function itemsFetchData(url) {
     return (dispatch) => {
         dispatch(itemsIsLoading(true));
 
-        fetch(url)
+        ApiService(url)
             .then((response) => {
                 if (!response.ok) {
                     throw Error(response.statusText);
