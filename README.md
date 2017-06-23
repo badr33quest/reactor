@@ -20,13 +20,13 @@ Reactor - React Modern Boilerplate
     - redux-thunk
     - redux-logger
 
-<br />
+
 **Styles:**
   - Sass
   - PostCSS (autoprefixer)
   - Bootstrap-sass (customizable)
 
-<br />
+
 **Environment:**
 - Webpack 2:
   - webpack-dev-server
@@ -36,7 +36,7 @@ Reactor - React Modern Boilerplate
   - Express
   - HMR
 
-<br />
+
 **QA:**
 - Eslint
 
