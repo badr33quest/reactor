@@ -37,16 +37,14 @@ Reactor - React Modern Boilerplate
 - atomic design (react compoments)
 - ducks (redux)
 
-## Development
-
+## NPM Scripts
+**Development:**
 ```npm start:server``` run server with API mocks (will be available at [http://localhost:3000/](http://localhost:3000/))
 
 ```npm start:client``` run client (will be available at [http://localhost:8080/](http://localhost:8080/))
 
-## Production
-
+**Production:**
 ```npm run build``` build client application to /dist folder
 
-## Testing
-
+**Testing:**
 ```npm run lint``` run eslint for client application
