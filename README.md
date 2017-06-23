@@ -11,24 +11,32 @@ Reactor - React Modern Boilerplate
 **JS:**
   - Babel
     - babel-preset-env
+    
   - React
     - react-router-v4
     - react-hot-loader next
+
   - Redux
     - redux-thunk
     - redux-logger
- 
+
+<br />
 **Styles:**
   - Sass
   - PostCSS (autoprefixer)
   - Bootstrap-sass (customizable)
 
+<br />
 **Environment:**
 - Webpack 2:
   - webpack-dev-server
   - HMR
-- Server for mocking API (HMR supported)
 
+- Server for mocking API 
+  - Express
+  - HMR
+
+<br />
 **QA:**
 - Eslint
 
