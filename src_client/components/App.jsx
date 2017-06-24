@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+/*if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update');
+  whyDidYouUpdate(React);
+}*/
+
 import {
   HomePage,
   EmployeesPage,

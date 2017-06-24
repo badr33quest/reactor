@@ -19,6 +19,7 @@ Reactor - React Modern Boilerplate
   - Redux
     - redux-thunk
     - redux-logger
+    - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) (needs [Chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd))
 
 
 **Styles:**
