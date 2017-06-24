@@ -8,16 +8,24 @@ import { Route, Switch } from 'react-router-dom';
 
 import {
   HomePage,
-  EmployeesPage,
+  EmployeesListPage,
+  EmployeePage,
   DocumentsPage,
+  GridsListPage,
+  ReactBootstrapTablePage,
+  AgGridPage,
   NotFoundPage
 } from 'app_pages';
 
 const App = () => (
   <Switch>
     <Route exact path="/" component={HomePage} />
-    <Route path="/employees" component={EmployeesPage} />
+    <Route exact path="/employees" component={EmployeesListPage} />
+    <Route exact path="/employees/:id" component={EmployeePage} />
     <Route path="/documents" component={DocumentsPage} />
+    <Route exact path="/grids" component={GridsListPage} />
+    <Route exact path="/grids/react-bootstrap-table" component={ReactBootstrapTablePage} />
+    <Route exact path="/grids/ag-grid" component={AgGridPage} />
     <Route component={NotFoundPage} />
   </Switch>
 );

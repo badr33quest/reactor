@@ -1,6 +1,7 @@
 import './Main.scss';
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import {
     PageTitle,
@@ -13,9 +14,17 @@ class Main extends React.Component {
             <main>
                 <PageTitle {...this.props} />
                 <PageDescription {...this.props} />
+                {this.props.children && <div className="page-content">
+                    {this.props.children}
+                </div>}
             </main>
         );
     }
 }
+
+Main.propTypes = {
+    children: PropTypes.node
+};
+
 
 export default Main;

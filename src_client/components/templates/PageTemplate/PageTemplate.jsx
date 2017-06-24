@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 
 import { 
     Header,
-    Main 
+    Main,
+    Breadcrumbs
  } from 'app_organisms';
 
 const PageTemplate = (props) => (
     <div>
         <Header />
+        <Breadcrumbs />
         <Main {...props} />
     </div>
 );

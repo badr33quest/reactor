@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import { itemsFetchData } from 'app_actions/items';
 
@@ -23,7 +24,7 @@ class EmployeesListContainer extends Component {
             <ul>
                 {this.props.items.map((item) => (
                     <li key={item.id + '_' + Math.random()}>
-                        {item.name}
+                        <NavLink to={`/employees/${item.id}`}>{item.name}</NavLink>
                     </li>
                 ))}
             </ul>

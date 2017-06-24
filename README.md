@@ -21,14 +21,12 @@ Reactor - React Modern Boilerplate
     - redux-logger
     - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) (needs [Chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd))
 
-----------
 
 **Styles:**
   - Sass
   - PostCSS (autoprefixer)
   - Bootstrap-sass (customizable)
 
-----------
 
 **Environment:**
 - Webpack 2:
@@ -39,7 +37,6 @@ Reactor - React Modern Boilerplate
   - Express
   - HMR
 
-----------
 
 **QA:**
 - Eslint

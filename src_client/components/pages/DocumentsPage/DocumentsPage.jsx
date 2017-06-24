@@ -7,7 +7,7 @@ import {
 class DocumentsPage extends React.Component {
     render() {
         return <PageTemplate
-            title="DocumentsPage, hello"
+            title="DocumentsPage"
             description="DocumentsPage description"
         />;
     }
