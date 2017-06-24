@@ -115,13 +115,13 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(woff2?|svg)$/,
+                test: /\.(woff|woff2?|svg)$/,
                 exclude: /images/,
-                loader: 'url-loader?limit=10000&name=assets/fonts/[name].[ext]'
+                loader: 'url-loader?limit=10000&name=assets/fonts/[name].[ext]&publicPath=../../'
             },
             {
                 test: /\.(ttf|eot)$/,
-                loader: 'file-loader?name=assets/fonts/[name].[ext]'
+                loader: 'file-loader?name=[assets/fonts/][name].[ext]&publicPath=../../'
             }
         ]
     },
