@@ -6,6 +6,8 @@ Reactor - React Modern Boilerplate
 ## Description
   Boilerplate for quick start developing with ReactJS. 
 
+----------
+
 ## Technologies
 
 **JS:**
@@ -41,10 +43,14 @@ Reactor - React Modern Boilerplate
 **QA:**
 - Eslint
 
+----------
+
 ## Project structure
 **Principles:**
 - atomic design (react compoments)
 - ducks (redux)
+
+----------
 
 ## NPM Scripts
 **Development:**
