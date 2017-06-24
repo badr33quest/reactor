@@ -6,8 +6,6 @@ Reactor - React Modern Boilerplate
 ## Description
   Boilerplate for quick start developing with ReactJS. 
 
-----------
-
 ## Technologies
 
 **JS:**
@@ -23,12 +21,14 @@ Reactor - React Modern Boilerplate
     - redux-logger
     - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) (needs [Chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd))
 
+----------
 
 **Styles:**
   - Sass
   - PostCSS (autoprefixer)
   - Bootstrap-sass (customizable)
 
+----------
 
 **Environment:**
 - Webpack 2:
@@ -39,18 +39,15 @@ Reactor - React Modern Boilerplate
   - Express
   - HMR
 
+----------
 
 **QA:**
 - Eslint
-
-----------
 
 ## Project structure
 **Principles:**
 - atomic design (react compoments)
 - ducks (redux)
-
-----------
 
 ## NPM Scripts
 **Development:**
