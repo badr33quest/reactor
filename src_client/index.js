@@ -1,5 +1,5 @@
 import './assets/css/index.scss';
-// import './assets/bootstrap/react-bootstrap-table.scss';
+import './assets/bootstrap/react-bootstrap-table.scss';
 
 import React from 'react';
 import { render } from 'react-dom';
