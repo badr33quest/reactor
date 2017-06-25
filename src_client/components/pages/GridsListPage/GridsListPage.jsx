@@ -19,7 +19,7 @@ class GridsListPage extends React.Component {
                         <NavLink to="/grids/react-bootstrap-table">react-bootstrap-table</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/grids/ag-grid">ag-grid</NavLink>
+                        <NavLink to="/grids/devextreme-react-grid">devextreme-react-grid</NavLink>
                     </li>
                 </ul>
             </PageTemplate>

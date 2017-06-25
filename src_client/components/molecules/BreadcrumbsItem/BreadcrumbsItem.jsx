@@ -7,7 +7,7 @@ const ROUTES_NAMES = {
     '/': 'Home',
     '/grids': 'Grids',
     '/grids/react-bootstrap-table': 'react-bootstrap-table',
-    '/grids/ag-grid': 'ag-grid',
+    '/grids/devextreme-react-grid': 'devextreme-react-grid',
     '/employees': 'Employees',
     '/employees/1': 'Employee 1',
     '/employees/2': 'Employee 2',

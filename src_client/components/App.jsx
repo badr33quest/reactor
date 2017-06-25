@@ -13,7 +13,7 @@ import {
   DocumentsPage,
   GridsListPage,
   ReactBootstrapTablePage,
-  AgGridPage,
+  DevExtremeReactGridPage,
   NotFoundPage
 } from 'app_pages';
 
@@ -25,7 +25,7 @@ const App = () => (
     <Route path="/documents" component={DocumentsPage} />
     <Route exact path="/grids" component={GridsListPage} />
     <Route exact path="/grids/react-bootstrap-table" component={ReactBootstrapTablePage} />
-    <Route exact path="/grids/ag-grid" component={AgGridPage} />
+    <Route exact path="/grids/devextreme-react-grid" component={DevExtremeReactGridPage} />
     <Route component={NotFoundPage} />
   </Switch>
 );

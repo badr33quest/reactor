@@ -11,7 +11,7 @@ import {
 
 const GRID_ROUTES = [
     {name: 'react-bootstrap-table', path: 'react-bootstrap-table'},
-    {name: 'ag-grid', path: 'ag-grid'},
+    {name: 'devextreme-react-grid', path: 'devextreme-react-grid'},
 ];
 
 const Header = () => (

@@ -121,7 +121,7 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot)$/,
-                loader: 'file-loader?name=[assets/fonts/][name].[ext]&publicPath=../../'
+                loader: 'file-loader?name=assets/fonts/[name].[ext]&publicPath=../../'
             }
         ]
     },
