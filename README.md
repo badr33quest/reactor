@@ -49,9 +49,9 @@ Reactor - React Modern Boilerplate
 ## NPM Scripts
 **Development:**
 <br />
-```npm start:server``` - run server with API mocks (will be available at [http://localhost:3000/](http://localhost:3000/))
+```npm run start:server``` - run server with API mocks (will be available at [http://localhost:3000/](http://localhost:3000/))
 <br /><br />
-```npm start:client``` - run client (will be available at [http://localhost:8080/](http://localhost:8080/))
+```npm run start:client``` - run client (will be available at [http://localhost:8080/](http://localhost:8080/))
 <br />
 
 **Production:**
